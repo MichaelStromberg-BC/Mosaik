@@ -1,4 +1,4 @@
-# Mosaik
+![Mosaik](https://github.com/MichaelStromberg-BC/Mosaik/raw/main/mosaik.png)
 
 During my Ph.D., this was my baby. This version represents the last version that was published before I graduated.
 
