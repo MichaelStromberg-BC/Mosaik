@@ -1,0 +1,38 @@
+================================================================================
+Mosaik 1.0.1388 Distribution Documentation
+Michael Stromberg, Marth Lab                                          2010-02-01
+================================================================================
+
+Compiling the source code
+=========================
+
+Just enter the src directory, glance at the README file, and type "make; make utils"
+
+Running the demo
+================
+
+To see a full list of the available command line options, enter the bin
+directory and run any of the program without any extra parameters.
+
+Included in this release is an Illumina data set featuring reads C. elegans
+chromosome 2.
+
+To test Mosaik with this data set, just enter the data directory and type Build, 
+Align, and Assemble to run the appropriate scripts.
+
+example:
+
+> cd data
+> ./Build.sh
+> ./Align.sh
+> ./Assemble.sh
+
+The resulting ace file (c.elegans_chr2_test_II.ace) will be found in the
+data/C.elegans_Chromosome2_Illumina/assembly/ directory, which can then
+be viewed by utilities such as consed.
+
+MOSAIK API
+==========
+
+C++ and perl code for parsing MOSAIK alignment archives can be found in the
+MosaikTools directory.

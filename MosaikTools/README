@@ -1,0 +1,35 @@
+================================================================================
+Mosaik 1.0.1307 MosaikTools API Documentation
+Michael Stromberg, Marth Lab                                          2009-10-14
+================================================================================
+
+The MosaikTools API has been provided so that users can directly access the
+pairwise alignments contained within the MOSAIK alignment archives.
+
+The API is written in C++ and only a few lines of code are required to
+process all of the reads contained in an alignment archive.
+
+The Simplified Wrapper and Interface Generator (SWIG) toolkit has been used to
+create a version of the API that is accessible from Perl. SWIG can be found at
+http://www.swig.org, but it is also available via most Linux package managers
+such as apt and yum.
+
+To compile the example code, enter either the 'c++' or 'perl' directory and
+type 'make'. 
+
+For the perl example, SWIG must be installed and the PERL_CORE_DIR
+variable in the Makefile should be updated to point to the directory that
+contains perl.h, XSUB.h, and Extern.h. On our system, that directory is
+located at: /usr/lib64/perl5/5.8.8/x86_64-linux-thread-multi/CORE
+
+To run the example on an alignment archive called myreads_aligned.dat, enter
+'./MosaikReaderTest myreads_aligned.dat' if you are using the c++ example or
+'./MosaikReaderTest.pl myreads_aligned.dat' if you are using the perl example.
+
+The example begins by checking if the supplied file is a valid alignment
+archive. It then queries and displays the status fields in the archive.
+Finally it reads every alignment contained in the archive and displays
+the pairwise alignments.
+
+The comments in the example code will help you adapt the code to your own
+specific needs.

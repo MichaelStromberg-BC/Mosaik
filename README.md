@@ -15,7 +15,7 @@ MOSAIK is a reference-guided assembler comprising of two main modular programs:
 
 MosaikBuild converts various sequence formats into Mosaik’s native read format. MosaikAligner pairwise aligns each read to a specified series of reference sequences and produces BAMs as outputs.
 
-At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard & Gerald, or SRF file formats and producing results in the BAM format.
+At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard & Gerald, or SRF file formats and producing results in the BAM format. More information can be found in the [MOSAIK 1.0 Documentation](Mosaik-1.0-Documentation.pdf)
 
 ## What's new?
 
