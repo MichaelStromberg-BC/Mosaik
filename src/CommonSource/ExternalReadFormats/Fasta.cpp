@@ -1,7 +1,7 @@
 // ***************************************************************************
 // CFasta - imports reads from the FASTA file format.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -16,20 +16,20 @@
 #define READ_FILE_GETC           (mAreBasesCompressed ? gzgetc(mInZStream)                                : fgetc(mInStream))
 #define READ_FILE_GETS           (mAreBasesCompressed ? gzgets(mInZStream, mBaseBuffer, mBaseBufferLen)   : fgets(mBaseBuffer, mBaseBufferLen, mInStream))
 #define READ_FILE_OFFSET         (mAreBasesCompressed ? gztell(mInZStream)                                : ftell64(mInStream))
-#define READ_FILE_OPEN(filename) (mAreBasesCompressed ? mInZStream = gzopen(filename, "rb")               : mInStream = fopen(filename, "rb"))
+#define READ_FILE_OPEN(filename) (mAreBasesCompressed ? (mInZStream = gzopen(filename, "rb"), (void*)mInZStream) : (mInStream = fopen(filename, "rb"), (void*)mInStream))
 #define READ_FILE_REWIND         (mAreBasesCompressed ? gzseek(mInZStream, mReadDataBaseOffset, SEEK_SET) : fseek64(mInStream, mReadDataBaseOffset, SEEK_SET))
 #define READ_FILE_UNGETC(ch)     (mAreBasesCompressed ? gzungetc(ch, mInZStream)                          : ungetc(ch, mInStream))
-#define READ_STREAM              (mAreBasesCompressed ? mInZStream                                        : mInStream)
+#define READ_STREAM              (mAreBasesCompressed ? (void*)mInZStream                                 : (void*)mInStream)
 
 #define QUALITY_FILE_CLOSE          (mAreBasesCompressed         ? gzclose(mInQualityZStream)                                   : fclose(mInQualityStream))
 #define QUALITY_FILE_EOF            (mAreBaseQualitiesCompressed ? gzeof(mInQualityZStream)                                     : feof(mInQualityStream))
 #define QUALITY_FILE_GETC           (mAreBaseQualitiesCompressed ? gzgetc(mInQualityZStream)                                    : fgetc(mInQualityStream))
 #define QUALITY_FILE_GETS           (mAreBaseQualitiesCompressed ? gzgets(mInQualityZStream, mQualityBuffer, mQualityBufferLen) : fgets(mQualityBuffer, mQualityBufferLen, mInQualityStream))
 #define QUALITY_FILE_OFFSET         (mAreBaseQualitiesCompressed ? gztell(mInQualityZStream)                                    : ftell64(mInQualityStream))
-#define QUALITY_FILE_OPEN(filename) (mAreBaseQualitiesCompressed ? mInQualityZStream = gzopen(filename, "rb")                   : mInQualityStream = fopen(filename, "rb"))
+#define QUALITY_FILE_OPEN(filename) (mAreBaseQualitiesCompressed ? (mInQualityZStream = gzopen(filename, "rb"), (void*)mInQualityZStream) : (mInQualityStream = fopen(filename, "rb"), (void*)mInQualityStream))
 #define QUALITY_FILE_REWIND         (mAreBaseQualitiesCompressed ? gzseek(mInQualityZStream, mReadDataQualityOffset, SEEK_SET)  : fseek64(mInQualityStream, mReadDataQualityOffset, SEEK_SET))
 #define QUALITY_FILE_UNGETC(ch)     (mAreBaseQualitiesCompressed ? gzungetc(ch, mInQualityZStream)                              : ungetc(ch, mInQualityStream))
-#define QUALITY_STREAM              (mAreBaseQualitiesCompressed ? mInQualityZStream                                            : mInQualityStream)
+#define QUALITY_STREAM              (mAreBaseQualitiesCompressed ? (void*)mInQualityZStream                                     : (void*)mInQualityStream)
 
 // constructor
 CFasta::CFasta(void)

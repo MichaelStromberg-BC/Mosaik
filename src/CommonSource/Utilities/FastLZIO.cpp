@@ -21,7 +21,7 @@ CFastLZIO::CFastLZIO(void)
 	try {
 		mBufferLen = FASTLZ_IO_BUFFER_LEN;
 		mBuffer = new char[mBufferLen];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		printf("ERROR: Unable to initialize the FastLZ buffer.\n");
 		exit(1);
 	}
@@ -54,7 +54,7 @@ void CFastLZIO::Read(char* &buffer, unsigned int& bufferLen, FILE* stm) {
 			bufferLen = newBufferLen;
 			if(buffer) delete [] buffer;
 			buffer = new char[bufferLen + 1];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			printf("ERROR: Unable to initialize the uncompressed FastLZ buffer (Read).\n");
 			exit(1);
 		}

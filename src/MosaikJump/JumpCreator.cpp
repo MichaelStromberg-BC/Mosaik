@@ -1,7 +1,7 @@
 // ***************************************************************************
 // CJumpCreator - creates a jump database for use with MosaikAligner.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -29,7 +29,7 @@ CJumpCreator::CJumpCreator(const unsigned char hashSize, const string& filenameS
 	// initialize the file buffer
 	try {
 		mBuffer = new unsigned char[mBufferLen];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate enough memory for the jump database buffer." << endl;
 		exit(1);
 	}
@@ -43,7 +43,7 @@ CJumpCreator::CJumpCreator(const unsigned char hashSize, const string& filenameS
 			mKeyBuffer = new uint64_t[num64uint];
 			const uint64_t EMPTY = 0xffffffffffffffffULL;
 			uninitialized_fill(mKeyBuffer, mKeyBuffer + num64uint, EMPTY);
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the jump database key buffer." << endl;
 			exit(1);
 		}
@@ -453,7 +453,7 @@ void CJumpCreator::StoreHash(vector<HashPosition>& hashPositions) {
 	if(mLimitPositions && (numHashes > mMaxHashPositions)) numHashes = mMaxHashPositions;
 
 	// shuffle the vector
-	random_shuffle(hashPositions.begin(), hashPositions.end());
+	std::shuffle(hashPositions.begin(), hashPositions.end(), std::default_random_engine{});
 
 	// localize the hash
 	uint64_t hash = hashPositions[0].Hash;

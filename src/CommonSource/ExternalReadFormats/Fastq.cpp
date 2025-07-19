@@ -1,7 +1,7 @@
 // ***************************************************************************
 // CFastq - imports reads from the FASTQ file format.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -16,10 +16,10 @@
 #define READ_FILE_GETC           (mAreBasesCompressed ? gzgetc(mInZStream)                            : fgetc(mInStream))
 #define READ_FILE_GETS           (mAreBasesCompressed ? gzgets(mInZStream, mBuffer, mBufferLen)       : fgets(mBuffer, mBufferLen, mInStream))
 #define READ_FILE_OFFSET         (mAreBasesCompressed ? gztell(mInZStream)                            : ftell64(mInStream))
-#define READ_FILE_OPEN(filename) (mAreBasesCompressed ? mInZStream = gzopen(filename, "rb")           : mInStream = fopen(filename, "rb"))
+#define READ_FILE_OPEN(filename) (mAreBasesCompressed ? (mInZStream = gzopen(filename, "rb"), (void*)mInZStream) : (mInStream = fopen(filename, "rb"), (void*)mInStream))
 #define READ_FILE_REWIND         (mAreBasesCompressed ? gzseek(mInZStream, mReadDataOffset, SEEK_SET) : fseek64(mInStream, mReadDataOffset, SEEK_SET))
 #define READ_FILE_UNGETC(ch)     (mAreBasesCompressed ? gzungetc(ch, mInZStream)                      : ungetc(ch, mInStream))
-#define READ_STREAM              (mAreBasesCompressed ? mInZStream                                    : mInStream)
+#define READ_STREAM              (mAreBasesCompressed ? (void*)mInZStream                             : (void*)mInStream)
 
 // constructor
 CFastq::CFastq(void) 

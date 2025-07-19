@@ -1,7 +1,7 @@
 // ***************************************************************************
 // CJumpCreator - creates a jump database for use with MosaikAligner.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include <memory>
+#include <random>
+#include <algorithm>
 #include "ConsoleUtilities.h"
 #include "FileUtilities.h"
 #include "MemoryUtilities.h"

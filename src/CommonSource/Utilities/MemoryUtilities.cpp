@@ -19,7 +19,7 @@ void CMemoryUtilities::CheckBufferSize(char* &pBuffer, unsigned int& bufferLen, 
 			delete [] pBuffer;
 			pBuffer = new char[bufferLen];
 		}
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Out of memory when allocating " << requestedBytes << " bytes." << endl;
 		exit(1);
 	}
@@ -33,7 +33,7 @@ void CMemoryUtilities::CheckBufferSize(unsigned char* &pBuffer, unsigned int& bu
 			delete [] pBuffer;
 			pBuffer = new unsigned char[bufferLen];
 		}
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Out of memory when allocating " << requestedBytes << " bytes." << endl;
 		exit(1);
 	}

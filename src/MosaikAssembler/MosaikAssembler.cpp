@@ -159,7 +159,7 @@ void CMosaikAssembler::AddGapsToReferenceSequence(const vector<GapInfo>& gaps, s
 
 	try {
 		refPads = new ReferencePadInfo[numReferenceBases];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		printf("ERROR: Unable to allocate memory for %u bases when adding gaps to the reference sequence.\n", numReferenceBases);
 		exit(1);
 	}
@@ -453,7 +453,7 @@ void CMosaikAssembler::PopulateUngappedToGappedVector(const CMosaikString& refer
 
 		try {
 			mpUngap2Gap = new unsigned int[mUngap2GapLen];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			printf("ERROR: Unable to allocate %u unsigned integers for the ungapped-to-gapped coordinate vector.\n", mUngap2GapLen);
 			exit(1);
 		}

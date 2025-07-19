@@ -35,7 +35,7 @@ CMosaikBuild::CMosaikBuild(const MosaikReadFormat::ReadGroup& md)
 	// initialize the read and index buffer
 	try {
 		mBuffer = new unsigned char[mBufferLen];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate enough memory for the I/O buffer." << endl;
 		exit(1);
 	}
@@ -452,7 +452,7 @@ void CMosaikBuild::CreateReferenceArchive(const string& fastaFilename, const str
 
 	try {
 		concatenatedReference = new char[concatenatedLength + 1];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		printf("ERROR: Unable to allocate enough memory (%u bytes) to create the concatenated reference sequence.\n", concatenatedLength + 1);
 		exit(1);
 	}
@@ -507,7 +507,7 @@ void CMosaikBuild::CreateReferenceArchive(const string& fastaFilename, const str
 
 	try {
 		concatenated2bReference = new char[concatenated2bLength + 1];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		printf("ERROR: Unable to allocate enough memory (%u bytes) to create the concatenated 2-bit reference sequence.\n", concatenated2bLength + 1);
 		exit(1);
 	}
@@ -609,7 +609,7 @@ void CMosaikBuild::CreateReferenceArchive(const string& fastaFilename, const str
 		char* maskedBuffer = NULL;
 		try {
 			maskedBuffer = new char[numBytesWritten];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			printf("ERROR: Unable to allocate memory for the masked region buffer.\n");
 			exit(1);
 		}

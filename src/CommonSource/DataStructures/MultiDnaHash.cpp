@@ -37,7 +37,7 @@ CMultiDnaHash::CMultiDnaHash(const unsigned char bitCapacity, const unsigned cha
 		mHashes        = new uint64_t[mCapacity];
 		mHashPositions = new unsigned int[mCapacity * DNA_HASH_NUM_STORED];
 
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate enough memory for the DNA hash map." << endl;
 		exit(1);
 	}

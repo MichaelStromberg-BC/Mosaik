@@ -38,7 +38,7 @@ namespace MosaikReadFormat {
 		// initialize the read and index buffer
 		try {
 			mBuffer = new unsigned char[mBufferLen];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the alignment output buffer." << endl;
 			exit(1);
 		}
@@ -75,7 +75,7 @@ namespace MosaikReadFormat {
 
 		try {
 			newBuffer = new unsigned char[newBufferLen];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to reallocate enough memory for the alignment output buffer." << endl;
 			exit(1);
 		}

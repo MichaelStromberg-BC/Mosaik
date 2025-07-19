@@ -1,7 +1,7 @@
 // ***************************************************************************
 // CSmithWatermanGotoh - aligns reads using a Smith-Waterman algorithm.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -79,7 +79,7 @@ void CSmithWatermanGotoh::Align(Alignment& alignment, const char* s1, const unsi
 			mSizesOfVerticalGaps   = new short[mCurrentMatrixSize];
 			mSizesOfHorizontalGaps = new short[mCurrentMatrixSize];
 
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the Smith-Waterman algorithm." << endl;
 			exit(1);
 		}
@@ -113,7 +113,7 @@ void CSmithWatermanGotoh::Align(Alignment& alignment, const char* s1, const unsi
 			mQueryGapScores = new float[mCurrentQuerySize + 1];
 			mBestScores     = new float[mCurrentQuerySize + 1];
 
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the Smith-Waterman algorithm." << endl;
 			exit(1);
 		}
@@ -135,7 +135,7 @@ void CSmithWatermanGotoh::Align(Alignment& alignment, const char* s1, const unsi
 			mReversedAnchor = new char[mCurrentAQSumSize + 1];	// reversed sequence #1
 			mReversedQuery  = new char[mCurrentAQSumSize + 1];	// reversed sequence #2
 
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the Smith-Waterman algorithm." << endl;
 			exit(1);
 		}

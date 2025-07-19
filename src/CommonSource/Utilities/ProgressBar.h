@@ -2,7 +2,7 @@
 // CProgressBar - displays a bar depicting the current progress of a 
 //                particular task. (operates in its own thread)
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -24,6 +24,7 @@
 
 #ifndef WIN32
 #include <sys/ioctl.h>
+#include <sys/time.h>
 #endif
 
 using namespace std;
@@ -162,7 +163,7 @@ CProgressBar<K>::CProgressBar(K* pCurrentValue, const K minValue, const K maxVal
 
 	try {
 		mBuffer = new char[mBufferLen];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate the buffer used by the progress bar." << endl;
 		exit(1);
 	}
@@ -604,8 +605,7 @@ progress_bar_time_t CProgressBar<K>::GetSystemMilliseconds(void) {
 #else
 
 	struct timeval tv;
-	struct timezone tz;
-	gettimeofday(&tv, &tz);
+	gettimeofday(&tv, NULL);
 	currentTime = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 
 #endif

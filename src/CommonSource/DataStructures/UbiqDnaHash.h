@@ -2,7 +2,7 @@
 // CUbiqDnaHash - genome hash map used in the all algorithm. 
 //                (unlimited genome positions / hash)
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -17,6 +17,7 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <random>
 #include "AbstractDnaHash.h"
 #include "MemoryUtilities.h"
 #include "ProgressBar.h"

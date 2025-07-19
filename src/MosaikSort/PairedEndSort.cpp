@@ -2,7 +2,7 @@
 // CPairedEndSort - resolves paired-end reads and creates an alignment archive
 //                  sorted by reference sequence position.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -628,7 +628,7 @@ void CPairedEndSort::ResolvePairedEndReads(const string& inputFilename, const st
 		const bool isUO = ar.Mate1Alignments.empty() || ar.Mate2Alignments.empty();
 		const bool isUU =  isMate1Unique &&  isMate2Unique;
 		const bool isMM = !isMate1Unique && !isMate2Unique;
-		const bool isUM = !isUO && !isUU && !isMM;
+		// const bool isUM = !isUO && !isUU && !isMM;  // unused variable
 
 		// handle orphans
 		if(isUO) {

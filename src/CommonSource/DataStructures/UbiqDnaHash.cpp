@@ -2,7 +2,7 @@
 // CUbiqDnaHash - genome hash map used in the all algorithm. 
 //                (unlimited genome positions / hash)
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -36,7 +36,7 @@ CUbiqDnaHash::CUbiqDnaHash(const unsigned char bitCapacity, const unsigned char 
 		mHashes        = new uint64_t[mCapacity];
 		mHashPositions = new vector<unsigned int>[mCapacity];
 
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate enough memory for the DNA hash map." << endl;
 		exit(1);
 	}
@@ -337,7 +337,7 @@ void CUbiqDnaHash::RandomizeAndTrimHashPositions(unsigned short numHashPositions
 		if(mHashes[i] != DNA_HASH_EMPTY_KEY) {
 			if(mHashPositions[i].size() > numHashPositions) {
 				pHashPositions = &mHashPositions[i];
-				random_shuffle(pHashPositions->begin(), pHashPositions->end());
+				std::shuffle(pHashPositions->begin(), pHashPositions->end(), std::default_random_engine{});
 				pHashPositions->erase(pHashPositions->begin() + numHashPositions, pHashPositions->end());
 			}
 		}

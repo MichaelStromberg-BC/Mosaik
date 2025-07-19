@@ -38,7 +38,7 @@ void CGigaBayesFormat::CheckBQBufferSize(const unsigned int requestedLength) {
 			delete [] mBQBuffer;
 			mBQBuffer = new unsigned short[mBQBufferLen];
 		}
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Out of memory when allocating " << requestedLength << " unsigned shorts." << endl;
 		exit(1);
 	}

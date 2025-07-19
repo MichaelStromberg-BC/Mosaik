@@ -2,7 +2,7 @@
 // SafeFunctions.h - provides platform independence while using the "safe
 //                   function" syntax from WIN32.
 // ---------------------------------------------------------------------------
-// (c) 2006 - 2009 Michael Strömberg
+// (c) 2006 - 2009 Michael Strï¿½mberg
 // Marth Lab, Department of Biology, Boston College
 // ---------------------------------------------------------------------------
 // Dual licenced under the GNU General Public License 2.0+ license or as
@@ -16,6 +16,7 @@
 #include <cstdio>
 #include <cstdarg>
 #include <cstring>
+#include <ctime>
 
 typedef int errno_t;
 #define EINVAL 22

@@ -401,7 +401,7 @@ bool CAlignmentThread::AlignRead(CNaiveAlignmentSet& alignments, const char* que
 		try {
 			mForwardRead = new char[mSettings.AllocatedReadLength];
 			mReverseRead = new char[mSettings.AllocatedReadLength];
-		} catch(bad_alloc) {
+		} catch(const bad_alloc&) {
 			cout << "ERROR: Unable to allocate enough memory for the forward and reverse read buffers." << endl;
 			exit(1);
 		}

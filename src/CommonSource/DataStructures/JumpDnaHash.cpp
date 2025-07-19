@@ -67,7 +67,7 @@ CJumpDnaHash::CJumpDnaHash(const unsigned char hashSize, const string& filenameS
 	// initialize the file buffer
 	try {
 		mBuffer = new unsigned char[mBufferLen];
-	} catch(bad_alloc) {
+	} catch(const bad_alloc&) {
 		cout << "ERROR: Unable to allocate enough memory for the jump database buffer." << endl;
 		exit(1);
 	}
